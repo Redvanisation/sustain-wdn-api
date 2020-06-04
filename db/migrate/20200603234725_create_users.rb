@@ -10,7 +10,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :soft_skills
       t.string :support_types
       t.integer :eager_scale
-      t.integer :facilitator_id
 
       t.timestamps
     end

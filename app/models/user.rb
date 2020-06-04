@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
 
   belongs_to :facilitator
   has_and_belongs_to_many :pathways

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_013727) do
+ActiveRecord::Schema.define(version: 2020_06_04_032255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,9 +50,10 @@ ActiveRecord::Schema.define(version: 2020_06_04_013727) do
     t.text "description"
     t.string "type"
     t.string "related_field"
-    t.integer "organization_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "organization_id"
+    t.index ["organization_id"], name: "index_opportunities_on_organization_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -106,10 +107,13 @@ ActiveRecord::Schema.define(version: 2020_06_04_013727) do
     t.string "soft_skills"
     t.string "support_types"
     t.integer "eager_scale"
-    t.integer "facilitator_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "facilitator_id"
+    t.index ["facilitator_id"], name: "index_users_on_facilitator_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "opportunities", "organizations"
+  add_foreign_key "users", "facilitators"
 end

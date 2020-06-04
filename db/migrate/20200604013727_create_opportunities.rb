@@ -5,7 +5,6 @@ class CreateOpportunities < ActiveRecord::Migration[6.0]
       t.text :description
       t.string :type
       t.string :related_field
-      t.integer :organization_id
 
       t.timestamps
     end
