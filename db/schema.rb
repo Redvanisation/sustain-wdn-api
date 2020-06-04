@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_210047) do
+ActiveRecord::Schema.define(version: 2020_06_04_000824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,49 @@ ActiveRecord::Schema.define(version: 2020_06_03_210047) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "facilitators", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.boolean "admin", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pathways", force: :cascade do |t|
+    t.string "title"
+    t.text "subtitle"
+    t.text "description"
+    t.text "education_levels"
+    t.text "subjects"
+    t.text "activities"
+    t.text "soft_skills"
+    t.text "support_types"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pathways_users", force: :cascade do |t|
+    t.integer "pathway_id"
+    t.integer "user_id"
+    t.index ["pathway_id", "user_id"], name: "index_pathways_users_on_pathway_id_and_user_id", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "educartion_level"
+    t.string "fav_subjects"
+    t.string "fav_activities"
+    t.string "soft_skills"
+    t.string "support_types"
+    t.integer "eager_scale"
+    t.integer "facilitator_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
