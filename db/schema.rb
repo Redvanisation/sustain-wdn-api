@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_000824) do
+ActiveRecord::Schema.define(version: 2020_06_04_013727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,38 @@ ActiveRecord::Schema.define(version: 2020_06_04_000824) do
     t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "opportunities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "type"
+    t.string "related_field"
+    t.integer "organization_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.text "description"
+    t.string "industry"
+    t.boolean "interships", default: false
+    t.boolean "jobs", default: false
+    t.boolean "other_opportunities", default: false
+    t.text "related_subjects"
+    t.text "related_activities"
+    t.text "related_soft_skills"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "organizations_users", force: :cascade do |t|
+    t.integer "organization_id"
+    t.integer "user_id"
+    t.index ["organization_id", "user_id"], name: "index_organizations_users_on_organization_id_and_user_id", unique: true
   end
 
   create_table "pathways", force: :cascade do |t|
