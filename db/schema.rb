@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_032255) do
     t.text "activities"
     t.text "soft_skills"
     t.text "support_types"
+    t.boolean "primary", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -107,6 +108,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_032255) do
     t.string "soft_skills"
     t.string "support_types"
     t.integer "eager_scale"
+    t.string "active_pathway"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "facilitator_id"

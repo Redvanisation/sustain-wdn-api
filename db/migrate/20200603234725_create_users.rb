@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :soft_skills
       t.string :support_types
       t.integer :eager_scale
+      t.string :active_pathway
 
       t.timestamps
     end
