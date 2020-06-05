@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :name, unique: true
       t.string :email, unique: true
       t.string :password_digest
-      t.string :educartion_level
+      t.string :education_level
       t.string :fav_subjects
       t.string :fav_activities
       t.string :soft_skills

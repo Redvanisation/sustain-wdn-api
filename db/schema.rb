@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_032255) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.string "educartion_level"
+    t.string "education_level"
     t.string "fav_subjects"
     t.string "fav_activities"
     t.string "soft_skills"
