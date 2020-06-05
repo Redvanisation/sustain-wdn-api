@@ -1,4 +1,8 @@
 class Api::V1::FacilitatorsController < ApplicationController
+  before_action except: [:create] do 
+    authenticate_facilitator_cookie
+  end
+
   
   def index
     facilitator = Facilitator.all
@@ -18,5 +22,15 @@ class Api::V1::FacilitatorsController < ApplicationController
 
   def facilitator_params
     params.permit(:name, :email, :password, :image)
+  end
+
+  def authenticate_facilitator_cookie
+    token = cookies.signed[:jwt]
+    decoded_token = CoreModules::JsonWebToken.decode(token)
+    if decoded_token
+      user = Facilitator.find_by_email(decoded_token["user_email"])
+      # debugger
+    end
+    if user then return true else render json: 'Unauthorized', status: 401 end
   end
 end
