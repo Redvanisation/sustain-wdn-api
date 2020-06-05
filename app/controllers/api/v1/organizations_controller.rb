@@ -1,7 +1,7 @@
 class Api::V1::OrganizationsController < ApplicationController
-  before_action except: [:create] do 
-    authenticate_organization_cookie
-  end
+  before_action :authenticate_organization_cookie, except: [:create]
+  before_action :set_user, except: [:index, :create]
+  before_action :check_user, except: [:index, :create]
 
   def index
     organization = Organization.all
@@ -18,10 +18,41 @@ class Api::V1::OrganizationsController < ApplicationController
     end
   end
 
+  def show
+    if @user
+      render json: @user
+    else
+      render json: 'Unable to find the organization', status: 400
+    end
+  end
+
+  def update
+    if @user.update(organization_params)
+      render json: @user
+    else
+      render json: 'Unable to update the organization', status: 400
+    end
+  end
+
+  def destroy
+    @user.destroy
+    render json: 'User deleted successfully!'
+  end
+
   private
 
   def organization_params
     params.permit(:name, :email, :password, :description, :industry, :interships, :other_opportunities, :jobs, :related_subjects, :related_activities, :related_soft_skills)
+  end
+
+  # Get the user from the url
+  def set_user
+    @user = Organization.find(params[:id])
+  end
+
+  # Check if the user got from the url is the same as the current_user otherwise throw an error
+  def check_user
+    render json: 'You are unauthorized!', status: 401 unless @user.id == current_user.id
   end
 
   def authenticate_organization_cookie
