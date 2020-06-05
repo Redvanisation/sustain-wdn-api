@@ -4,6 +4,9 @@ class Facilitator < ApplicationRecord
 
   has_many :users
 
+  has_one_attached :image
+
+
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

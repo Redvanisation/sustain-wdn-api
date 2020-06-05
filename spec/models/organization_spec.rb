@@ -12,9 +12,6 @@ RSpec.describe Organization, type: :model do
     it { should validate_presence_of(:password_digest) }
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:industry) }
-    it { should validate_presence_of(:interships) }
-    it { should validate_presence_of(:jobs) }
-    it { should validate_presence_of(:other_opportunities) }
     it { should validate_presence_of(:related_subjects) }
     it { should validate_presence_of(:related_activities) }
     it { should validate_presence_of(:related_soft_skills) }
