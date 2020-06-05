@@ -1,8 +1,8 @@
 class CreateOrganizations < ActiveRecord::Migration[6.0]
   def change
     create_table :organizations do |t|
-      t.string :name
-      t.string :email
+      t.string :name, unique: true
+      t.string :email, unique: true
       t.string :password_digest
       t.text :description
       t.string :industry
