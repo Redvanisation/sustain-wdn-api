@@ -10,9 +10,10 @@ class Api::V1::FacilitatorsController < ApplicationController
   end
 
   def create
-    facilitator = Facilitator.new(facilitator_params)
-    if facilitator.save
-      render json: facilitator
+    facilitator = CreateFacilitatorService.new(facilitator_params).call
+    # debugger
+    if facilitator
+      render json: 'Success!!'
     else
       render json: 'Unable to register as a facilitator', status: 400
     end

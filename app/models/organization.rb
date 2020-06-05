@@ -4,6 +4,8 @@ class Organization < ApplicationRecord
   has_and_belongs_to_many :users
   has_many :opportunities
 
+  has_one_attached :image
+
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

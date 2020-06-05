@@ -9,12 +9,12 @@ class Api::V1::OrganizationsController < ApplicationController
   end
 
   def create
-    organization = Organization.new(organization_params)
-    # debugger
-    if organization.save
-      render json: organization
+    organization = CreateOrganizationService.new(organization_params).call
+
+    if organization
+      render json: 'Success!'
     else
-      render 'Unable to register as an organization', status: 400
+      render json: 'Unable to register the organization', status: 400
     end
   end
 

@@ -1,16 +1,16 @@
-class CreateFacilitatorService
+class CreateOrganizationService
   def initialize(params)
     @params = params
-    @facilitator = Facilitator.new(@params)
+    @organization = Organization.new(@params)
   end
 
   def call
     if @params[:image] && !file?(@params[:image])
-      delete_image if @facilitator.image.attached?
+      delete_image if @organization.image.attached?
       @params.delete(:image)
     end
 
-    @facilitator.save ? @facilitator.image.attach(@params[:image]) : false
+    @organization.save ? @organization.image.attach(@params[:image]) : false
   end
 
   private
@@ -20,6 +20,6 @@ class CreateFacilitatorService
   end
 
   def delete_image
-    @facilitator.image.purge
+    @organization.image.purge
   end
 end
