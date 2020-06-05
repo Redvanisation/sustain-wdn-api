@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-  before_action only: [:destroy] do 
-    authenticate_cookie
-  end
+  # before_action only: [:destroy] do 
+  #   authenticate_cookie
+  # end
 
   def create
     email = params["email"]
@@ -22,8 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    user = current_user
-    if user  
+    if current_user
       cookies.delete(:jwt)
       render json: 'Logged out successfully'
     else

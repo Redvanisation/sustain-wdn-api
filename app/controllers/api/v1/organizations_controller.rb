@@ -29,7 +29,6 @@ class Api::V1::OrganizationsController < ApplicationController
     decoded_token = CoreModules::JsonWebToken.decode(token)
     if decoded_token
       user = Organization.find_by_email(decoded_token["user_email"])
-      # debugger
     end
     if user then return true else render json: 'Unauthorized', status: 401 end
   end
