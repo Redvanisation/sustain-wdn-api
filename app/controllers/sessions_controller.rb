@@ -1,7 +1,4 @@
 class SessionsController < ApplicationController
-  # before_action only: [:destroy] do 
-  #   authenticate_cookie
-  # end
 
   def create
     email = params["email"]

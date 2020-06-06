@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users
-      resources :facilitators
-      resources :organizations
+      resources :users, except: [:edit, :new, :delete]
+      resources :facilitators, except: [:edit, :new, :delete]
+      resources :organizations, except: [:edit, :new, :delete]
+      resources :opportunities, except: [:edit, :new, :delete]
     end
   end
 

@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
 
 
   def index
-    users = User.all
+    users = User.all.with_attached_image
     render json: users
   end
 

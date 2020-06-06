@@ -4,7 +4,7 @@ class Api::V1::OrganizationsController < ApplicationController
   before_action :check_user, except: [:index, :create]
 
   def index
-    organization = Organization.all
+    organization = Organization.all.with_attached_image
     render json: organization
   end
 

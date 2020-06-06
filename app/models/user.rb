@@ -3,6 +3,7 @@ class User < ApplicationRecord
   belongs_to :facilitator
   has_and_belongs_to_many :pathways
   has_and_belongs_to_many :organizations
+  has_and_belongs_to_many :opportunities
   
   has_one_attached :image
   has_secure_password

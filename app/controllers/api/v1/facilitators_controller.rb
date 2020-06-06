@@ -5,7 +5,7 @@ class Api::V1::FacilitatorsController < ApplicationController
 
   
   def index
-    facilitator = Facilitator.all
+    facilitator = Facilitator.all.with_attached_image
     render json: facilitator
   end
 
