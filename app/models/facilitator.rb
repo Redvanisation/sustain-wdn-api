@@ -18,11 +18,11 @@ class Facilitator < ApplicationRecord
   validates_presence_of :password_digest
 
   def self.handle_login(email, password)
-    user = Facilitator.find_by(email: email.downcase)
-    # debugger
+    user = Facilitator.find_by_email(email.downcase)
     if user && user.authenticate(password)
       user_info = Hash.new
       user_info[:token] = CoreModules::JsonWebToken.encode({user_email: user.email}, 4.hours.from_now)
+      debugger
       user_info[:user_id] = user.id
       user_info[:name] = user.name.capitalize
       user_info[:email] = user.email.downcase
