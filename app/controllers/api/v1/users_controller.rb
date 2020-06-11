@@ -1,10 +1,11 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_user_cookie, except: [:create]
+  before_action :authenticate_cookie, except: [:index, :create]
   before_action :set_user, except: [:index, :create]
   before_action :check_user, except: [:index, :create]
 
 
   def index
+    # debugger
     users = User.all.with_attached_image
     render json: users
   end
@@ -57,13 +58,4 @@ class Api::V1::UsersController < ApplicationController
     params.permit(:name, :email, :education_level, :fav_subjects, :fav_activities, :soft_skills, :support_types, :eager_scale, :active_pathway, :facilitator_id, :image, :password)
   end
 
-  # Authenticating the user based on the token in the cookie
-  def authenticate_user_cookie
-    token = cookies.signed[:jwt]
-    decoded_token = CoreModules::JsonWebToken.decode(token)
-    if decoded_token
-      user = User.find_by_email(decoded_token["user_email"])
-    end
-    if user then return true else render json: 'Unauthorized', status: 401 end
-  end
 end

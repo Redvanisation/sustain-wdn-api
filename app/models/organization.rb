@@ -26,14 +26,6 @@ class Organization < ApplicationRecord
       user_info[:user_id] = user.id
       user_info[:name] = user.name.capitalize
       user_info[:email] = user.email.downcase
-      user_info[:description] = user.description
-      user_info[:industry] = user.industry
-      user_info[:interships] = user.interships
-      user_info[:jobs] = user.jobs
-      user_info[:other_opportunities] = user.other_opportunities
-      user_info[:related_subjects] = user.related_subjects.downcase
-      user_info[:related_activities] = user.related_activities
-      user_info[:related_soft_skills] = user.related_soft_skills
 
       return user_info
     else

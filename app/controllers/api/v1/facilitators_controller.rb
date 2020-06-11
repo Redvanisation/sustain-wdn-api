@@ -1,5 +1,5 @@
 class Api::V1::FacilitatorsController < ApplicationController
-  before_action :authenticate_facilitator_cookie, except: [:create] 
+  before_action :authenticate_cookie, except: [:create] 
   before_action :set_user, except: [:index, :create]
   before_action :check_user, except: [:index, :create]
 
@@ -56,12 +56,4 @@ class Api::V1::FacilitatorsController < ApplicationController
       render json: 'You are unauthorized!', status: 401 unless @user.id == current_user.id
     end
 
-  def authenticate_facilitator_cookie
-    token = cookies.signed[:jwt]
-    decoded_token = CoreModules::JsonWebToken.decode(token)
-    if decoded_token
-      user = Facilitator.find_by_email(decoded_token["user_email"])
-    end
-    if user then return true else render json: 'Unauthorized', status: 401 end
-  end
 end

@@ -1,4 +1,6 @@
 class FacilitatorSerializer < ActiveModel::Serializer
+  include Rails.application.routes.url_helpers
+
   attributes :id, :name, :email, :updated_at, :image
 
   def image
