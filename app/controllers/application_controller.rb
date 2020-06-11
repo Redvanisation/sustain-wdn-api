@@ -9,10 +9,9 @@ class ApplicationController < ActionController::API
   
   def the_user
     token = the_token()
-    user = User.find_by_email(token["user_email"]) if User.find_by_email(token["user_email"])
-    user = Facilitator.find_by_email(token["user_email"]) if Facilitator.find_by_email(token["user_email"])
-    user = Organization.find_by_email(token["user_email"]) if Organization.find_by_email(token["user_email"])
-    user
+    return User.find_by_email(token["user_email"]) if User.find_by_email(token["user_email"])
+    return Facilitator.find_by_email(token["user_email"]) if Facilitator.find_by_email(token["user_email"])
+    return Organization.find_by_email(token["user_email"]) if Organization.find_by_email(token["user_email"])
   end
 
   def authenticate_cookie

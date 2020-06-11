@@ -5,14 +5,16 @@ module CoreModules::JsonWebToken
 
   # Rails.application.secrets.secret_key_base
 
+  SECRET_KEY = ENV['SECRET_KEY_BASE']
+
   def self.encode(payload, exp = 24.hours.from_now)
     payload[:exp] = exp.to_i
-    JWT.encode(payload, ENV['SECRET_KEY_BASE'])
+    JWT.encode(payload, SECRET_KEY)
   end
 
   def self.decode(token)
     begin
-    body = JWT.decode(token, ENV['SECRET_KEY_BASE'])
+    body = JWT.decode(token, SECRET_KEY)
       if body then HashWithIndifferentAccess.new body[0] else return false end
     rescue JWT::ExpiredSignature, JWT::VerificationError => e
       return false

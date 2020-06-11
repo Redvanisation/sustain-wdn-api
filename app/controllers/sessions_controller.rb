@@ -35,9 +35,8 @@ class SessionsController < ApplicationController
   private
 
   def get_login_hash(email, password)
-    login_hash = User.handle_login(email, password) if User.handle_login(email, password)
-    login_hash = Facilitator.handle_login(email, password) if Facilitator.handle_login(email, password)
-    login_hash = Organization.handle_login(email, password) if Organization.handle_login(email, password)
-    login_hash
+    return User.handle_login(email, password) if User.handle_login(email, password)
+    return Facilitator.handle_login(email, password) if Facilitator.handle_login(email, password)
+    return Organization.handle_login(email, password) if Organization.handle_login(email, password)
   end
 end
