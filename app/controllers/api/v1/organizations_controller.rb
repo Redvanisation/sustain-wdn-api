@@ -1,5 +1,5 @@
 class Api::V1::OrganizationsController < ApplicationController
-  before_action :authenticate_cookie, except: [:create]
+  # before_action :authenticate_cookie, except: [:create]
   before_action :set_user, except: [:index, :create]
   before_action :check_user, except: [:index, :create]
 

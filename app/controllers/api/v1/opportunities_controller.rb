@@ -1,5 +1,5 @@
 class Api::V1::OpportunitiesController < ApplicationController
-  before_action :authenticate_organization_cookie, except: [:index, :show]
+  # before_action :authenticate_organization_cookie, except: [:index, :show]
   before_action :set_organization, except: [:index, :show]
   before_action :check_user, except: [:index, :show]
   before_action :set_opportunity, except: [:index, :create]
@@ -61,12 +61,12 @@ class Api::V1::OpportunitiesController < ApplicationController
     render json: 'You are unauthorized!', status: 401 unless @user.id == current_user.id
   end
 
-  def authenticate_organization_cookie
-    token = cookies.signed[:jwt]
-    decoded_token = CoreModules::JsonWebToken.decode(token)
-    if decoded_token
-      user = Organization.find_by_email(decoded_token["user_email"])
-    end
-    if user then return true else render json: 'Unauthorized', status: 401 end
-  end
+  # def authenticate_organization_cookie
+  #   token = cookies.signed[:jwt]
+  #   decoded_token = CoreModules::JsonWebToken.decode(token)
+  #   if decoded_token
+  #     user = Organization.find_by_email(decoded_token["user_email"])
+  #   end
+  #   if user then return true else render json: 'Unauthorized', status: 401 end
+  # end
 end

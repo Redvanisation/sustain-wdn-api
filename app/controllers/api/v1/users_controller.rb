@@ -1,7 +1,9 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_cookie, except: [:index, :create]
+  # before_action :authenticate_cookie, except: [:index, :create]
   before_action :set_user, except: [:index, :create]
   before_action :check_user, except: [:index, :create]
+
+  skip_before_action :authorize_request, only: :create
 
 
   def index
