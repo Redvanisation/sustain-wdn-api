@@ -1,10 +1,8 @@
 module CoreModules::JsonWebToken
   require 'jwt'
 
-  # ENV['SECRET_KEY_BASE']
-
-  # Rails.application.secrets.secret_key_base
-
+  # SECRET_KEY = Rails.application.secrets.secret_key_base
+  
   SECRET_KEY = ENV['SECRET_KEY_BASE']
 
   def self.encode(payload, exp = 24.hours.from_now)

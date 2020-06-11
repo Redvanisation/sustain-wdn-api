@@ -3,22 +3,17 @@ class SessionsController < ApplicationController
     authenticate_cookie
   end
 
+  before_action :get_login_hash, only: [:create]
+
   def create
-    email = params["email"]
-    password = params["password"]
-    if email && password
-      login_hash = get_login_hash(email, password)
-      if login_hash
-        cookies.signed[:jwt] = { value: login_hash[:token], httponly: true }
-        # debugger
-        render json: {
-          user: login_hash
-        }
-      else
-        render json: 'incorrect email or password', status: 400
-      end
+    if @login_hash
+      cookies.signed[:jwt] = { value: @login_hash[:token], httponly: true }
+      # debugger
+      render json: {
+        user: @login_hash
+      }
     else
-      render json: 'specify email address and password', status: 400
+      render json: 'incorrect email or password', status: 400
     end
   end
 
@@ -34,9 +29,20 @@ class SessionsController < ApplicationController
 
   private
 
-  def get_login_hash(email, password)
-    return User.handle_login(email, password) if User.handle_login(email, password)
-    return Facilitator.handle_login(email, password) if Facilitator.handle_login(email, password)
-    return Organization.handle_login(email, password) if Organization.handle_login(email, password)
+  def get_login_hash
+    email = params["email"]
+    password = params["password"]
+
+    # if email && password
+      if User.handle_login(email, password)
+        @login_hash = User.handle_login(email, password)
+      elsif Facilitator.handle_login(email, password)
+        @login_hash = Facilitator.handle_login(email, password)
+      elsif Organization.handle_login(email, password)
+        @login_hash = Organization.handle_login(email, password)
+      end
+    # else
+    #   render json: 'specify email address and password', status: 400
+    # end
   end
 end
