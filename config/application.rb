@@ -12,7 +12,7 @@ require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
 # require "sprockets/railtie"
-require "rails/test_unit/railtie"
+# require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
 
@@ -20,7 +20,7 @@ module SustainWDNApi
   class Application < Rails::Application
     config.load_defaults 6.0
     config.autoload_paths += %W( lib/ )
-    config.api_only = true
     config.middleware.use ActionDispatch::Cookies
+    config.api_only = true
   end
 end

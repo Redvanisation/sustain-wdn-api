@@ -65,10 +65,8 @@ class Api::V1::SessionsController  < ApplicationController
   def create
     email = params["email"]
     password = params["password"]
-    
     if email && password
       login_hash = Facilitator.handle_login(email, password)
-      # debugger
       if login_hash
         cookies.signed[:jwt] = {value:  login_hash[:token], httponly: true}
         render json: { 
@@ -76,7 +74,7 @@ class Api::V1::SessionsController  < ApplicationController
           name: login_hash[:name],
         }
       else
-        render json: {status: 'incorrect email or password', code: 422}  
+        render json: { status: 'incorrect email or password' }, status: 400
       end
     else
       render json: {status: 'specify email address and password', code: 422}

@@ -39,7 +39,6 @@ class ApplicationController < ActionController::API
   def authenticate_cookie
     token = cookies.signed[:jwt]
     decoded_token = CoreModules::JsonWebToken.decode(token)
-    # debugger
     if decoded_token
       user = Facilitator.find_by(id: decoded_token["user_id"])
     end
