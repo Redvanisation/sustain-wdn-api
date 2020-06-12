@@ -2,6 +2,8 @@ class Api::V1::FacilitatorsController < ApplicationController
   before_action :set_user, except: [:index, :create]
   before_action :check_user, except: [:index, :create]
 
+  skip_before_action :authorize_request, only: :create
+
   
   def index
     facilitator = Facilitator.all.with_attached_image
