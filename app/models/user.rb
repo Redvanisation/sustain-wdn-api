@@ -18,21 +18,13 @@ class User < ApplicationRecord
   validates_presence_of :password_digest
   # :educartion_level, :fav_subjects, :fav_activities, :soft_skills, :support_types, :eager_scale
 
-  def self.handle_login(email, password)
-    user = User.find_by_email(email.downcase)
-    # debugger
-    if user && user.authenticate(password)
-      user_info = Hash.new
-      # debugger
-      user_info[:token] = CoreModules::JsonWebToken.encode({user_email: user.email}, 4.hours.from_now)
-      user_info[:user_id] = user.id
-      user_info[:name] = user.name.capitalize
-      user_info[:email] = user.email.downcase
+  def self.handle_login(user)
+    user_info = Hash.new
+    user_info[:user_id] = user.id
+    user_info[:name] = user.name.capitalize
+    user_info[:email] = user.email.downcase
 
-      return user_info
-    else
-      return false
-    end
+    return user_info
   end
 
 end

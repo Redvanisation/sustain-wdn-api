@@ -15,9 +15,15 @@ class AuthenticateUser
 
   # verify user credentials
   def user
-    user = Facilitator.find_by(email: email)
+    user = find_user
     return user if user && user.authenticate(password)
     # raise Authentication error if credentials are invalid
     raise(ExceptionHandler::AuthenticationError, Message.invalid_credentials)
+  end
+
+  def find_user
+    return User.find_by(email: email) if User.find_by(email: email)
+    return Facilitator.find_by(email: email) if Facilitator.find_by(email: email)
+    return Organization.find_by(email: email) if Organization.find_by(email: email)
   end
 end
