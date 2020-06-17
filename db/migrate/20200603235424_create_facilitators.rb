@@ -5,6 +5,7 @@ class CreateFacilitators < ActiveRecord::Migration[6.0]
       t.string :email, unique: true
       t.string :password_digest
       t.boolean :admin, default: false
+      t.string :role, default: 'facilitator'
 
       t.timestamps
     end

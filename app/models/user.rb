@@ -23,6 +23,8 @@ class User < ApplicationRecord
     user_info[:user_id] = user.id
     user_info[:name] = user.name.capitalize
     user_info[:email] = user.email.downcase
+    user_info[:role] = user.role
+    user_info[:facilitator_id] = user.facilitator_id
 
     return user_info
   end

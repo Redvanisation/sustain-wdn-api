@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_06_002818) do
+ActiveRecord::Schema.define(version: 2020_06_16_035501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_002818) do
     t.string "email"
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.string "role", default: "facilitator"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_002818) do
     t.text "related_subjects"
     t.text "related_activities"
     t.text "related_soft_skills"
+    t.string "role", default: "organization"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -115,9 +117,16 @@ ActiveRecord::Schema.define(version: 2020_06_06_002818) do
     t.string "support_types"
     t.integer "eager_scale"
     t.string "active_pathway"
+    t.string "role", default: "user"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "facilitator_id"
+    t.text "life_dream"
+    t.text "community_dream"
+    t.text "world_dream"
+    t.text "bio"
+    t.text "greatest_assets"
+    t.text "greatest_challenges"
     t.index ["facilitator_id"], name: "index_users_on_facilitator_id"
   end
 

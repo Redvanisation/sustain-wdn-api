@@ -22,6 +22,7 @@ class Organization < ApplicationRecord
     user_info[:user_id] = user.id
     user_info[:name] = user.name.capitalize
     user_info[:email] = user.email.downcase
+    user_info[:role] = user.role
 
     return user_info
   end

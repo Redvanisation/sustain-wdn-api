@@ -1,8 +1,8 @@
 class Api::V1::FacilitatorsController < ApplicationController
   before_action :set_user, except: [:index, :create]
-  before_action :check_user, except: [:index, :create]
+  before_action :check_user, except: [:index, :create, :show]
 
-  skip_before_action :authorize_request, only: :create
+  skip_before_action :authorize_request, only: [:create]
 
   
   def index
@@ -21,6 +21,7 @@ class Api::V1::FacilitatorsController < ApplicationController
   end
 
   def show
+    # debugger
     if @user
       render json: @user
     else
@@ -54,6 +55,7 @@ class Api::V1::FacilitatorsController < ApplicationController
   
     # Check if the user got from the url is the same as the current_user otherwise throw an error
     def check_user
+      # debugger
       render json: 'You are unauthorized!', status: 401 unless @user.id == current_user.id
     end
 

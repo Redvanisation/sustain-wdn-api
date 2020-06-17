@@ -11,6 +11,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :support_types
       t.integer :eager_scale
       t.string :active_pathway
+      t.string :role, default: 'user'
 
       t.timestamps
     end

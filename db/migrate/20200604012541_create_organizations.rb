@@ -12,6 +12,8 @@ class CreateOrganizations < ActiveRecord::Migration[6.0]
       t.text :related_subjects
       t.text :related_activities
       t.text :related_soft_skills
+      t.string :role, default: 'organization'
+
 
       t.timestamps
     end

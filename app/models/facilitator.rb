@@ -22,6 +22,8 @@ class Facilitator < ApplicationRecord
     user_info[:user_id] = user.id
     user_info[:name] = user.name.capitalize
     user_info[:admin] = user.admin
+    user_info[:role] = user.role
+
     return user_info
   end
 
