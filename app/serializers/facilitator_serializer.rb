@@ -1,7 +1,7 @@
 class FacilitatorSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
 
-  attributes :id, :name, :email, :updated_at, :image
+  attributes :id, :name, :email, :admin, :updated_at, :image
 
   def image
     return unless object.image.attached?

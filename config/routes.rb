@@ -11,11 +11,14 @@ Rails.application.routes.draw do
       resources :organizations, except: [:edit, :new, :delete]
       resources :opportunities, except: [:edit, :new, :delete]
       resources :facilitator_users, except: [:create, :update, :edit, :new, :delete, :destroy]
+      resources :worksheets_upload, only: [:update]
     end
   end
 
+  # put 'api/v1/upload/user/:id', controller: 'api/v1/users', action: 'documents'
   post 'auth/login', to: 'authentication#authenticate'
 
+  get 'api/v1/youth-count/:user_id', controller: 'api/v1/facilitator_users', action: 'users_count'
 
   post 'auth/users/register', controller: 'api/v1/users', action: 'create'
   post 'auth/facilitators/register', controller: 'api/v1/facilitators', action: 'create'

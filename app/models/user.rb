@@ -6,6 +6,13 @@ class User < ApplicationRecord
   has_and_belongs_to_many :opportunities
   
   has_one_attached :image
+
+  has_one_attached :bio_worksheet
+  has_one_attached :development_worksheet
+  has_one_attached :sustainability_worksheet
+  has_one_attached :college_prep_worksheet
+  has_one_attached :five_years_worksheet
+  
   has_secure_password
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

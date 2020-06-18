@@ -32,12 +32,11 @@ class Api::V1::UsersController < ApplicationController
 
   def update
     # debugger
-    @boo = @user.update(user_params)
-    if @boo
+    if @user.update(user_params)
       render json: @user
     else
-      render json: 'Unable to update the user', status: 400
       # debugger
+      render json: 'Unable to update the user', status: 400
     end
   end
 
@@ -54,19 +53,20 @@ class Api::V1::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # def get_facilitator
-  #   # debugger
-  #   @facilitator = Facilitator.find(params[:id])
-  # end
+  def get_facilitator
+    set_user
+    # debugger
+    @facilitator = Facilitator.find(@user.facilitator_id)
+  end
 
   # Check if the user got from the url is the same as the current_user otherwise throw an error
   def check_user
-    render json: 'You are unauthorized!', status: 401 unless @user.id == current_user.id
+    render json: 'You are unauthorized!', status: 401 unless @user.id == current_user.id || @user.facilitator_id == current_user.id
   end
 
   # Permitting the user's params
   def user_params
-    params.permit(:name, :email, :bio, :greatest_assets, :greatest_challenges, :education_level, :fav_subjects, :fav_activities, :soft_skills, :support_types, :eager_scale, :active_pathway, :life_dream, :community_dream, :world_dream, :facilitator_id, :image, :password)
+    params.permit(:name, :email, :bio, :greatest_assets, :greatest_challenges, :education_level, :fav_subjects, :fav_activities, :soft_skills, :support_types, :eager_scale, :active_pathway, :life_dream, :community_dream, :world_dream, :facilitator_id, :image, :password, :bio_worksheet, :development_worksheet, :sustainability_worksheet, :college_prep_worksheet, :five_years_worksheet)
   end
 
 end

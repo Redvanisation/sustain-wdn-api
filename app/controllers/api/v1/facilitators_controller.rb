@@ -56,7 +56,7 @@ class Api::V1::FacilitatorsController < ApplicationController
     # Check if the user got from the url is the same as the current_user otherwise throw an error
     def check_user
       # debugger
-      render json: 'You are unauthorized!', status: 401 unless @user.id == current_user.id
+      render json: 'You are unauthorized!', status: 401 unless @user.id == current_user.id || current_user.admin
     end
 
 end
