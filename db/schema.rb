@@ -88,8 +88,11 @@ ActiveRecord::Schema.define(version: 2020_06_16_035501) do
 
   create_table "pathways", force: :cascade do |t|
     t.string "title"
-    t.text "subtitle"
     t.text "description"
+    t.text "responsibilities"
+    t.text "qualifications"
+    t.string "salary"
+    t.text "links"
     t.text "education_levels"
     t.text "subjects"
     t.text "activities"

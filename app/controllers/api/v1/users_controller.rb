@@ -53,15 +53,15 @@ class Api::V1::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def get_facilitator
-    set_user
-    # debugger
-    @facilitator = Facilitator.find(@user.facilitator_id)
-  end
+  # def get_facilitator
+  #   set_user
+  #   # debugger
+  #   @facilitator = Facilitator.find(@user.facilitator_id)
+  # end
 
   # Check if the user got from the url is the same as the current_user otherwise throw an error
   def check_user
-    render json: 'You are unauthorized!', status: 401 unless @user.id == current_user.id || @user.facilitator_id == current_user.id
+    render json: 'You are unauthorized!', status: 401 unless @user.id == current_user.id || @user.facilitator_id == current_user.id || current_user.admin
   end
 
   # Permitting the user's params

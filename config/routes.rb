@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :facilitators, except: [:edit, :new, :delete]
       resources :organizations, except: [:edit, :new, :delete]
       resources :opportunities, except: [:edit, :new, :delete]
+      resources :pathways, except: [:edit, :new, :delete]
+      resources :user_pathways, only: [:index, :update]
       resources :facilitator_users, except: [:create, :update, :edit, :new, :delete, :destroy]
       resources :worksheets_upload, only: [:update]
     end
