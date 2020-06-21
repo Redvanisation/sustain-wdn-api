@@ -5,6 +5,7 @@ class CreateUserService
   end
   # debugger
   def call
+    # debugger
     if @params[:image] && !file?(@params[:image])
       delete_image if @user.image.attached?
       @params.delete(:image)

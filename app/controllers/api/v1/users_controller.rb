@@ -15,6 +15,7 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     user = CreateUserService.new(user_params).call
+    # debugger
     if user
       render json: 'Success!'
     else
@@ -31,12 +32,21 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    # debugger
     if @user.update(user_params)
       render json: @user
     else
       # debugger
       render json: 'Unable to update the user', status: 400
+    end
+  end
+
+  def add_dream_images
+    # debugger
+    user = AddUserDreamImagesService.new(user_params).call
+    if user
+      render json: @user
+    else
+      render json: 'Unable to upload the images', status: 400
     end
   end
 
@@ -66,7 +76,7 @@ class Api::V1::UsersController < ApplicationController
 
   # Permitting the user's params
   def user_params
-    params.permit(:name, :email, :bio, :greatest_assets, :greatest_challenges, :education_level, :fav_subjects, :fav_activities, :soft_skills, :support_types, :eager_scale, :active_pathway, :life_dream, :community_dream, :world_dream, :facilitator_id, :image, :password, :bio_worksheet, :development_worksheet, :sustainability_worksheet, :college_prep_worksheet, :five_years_worksheet)
+    params.permit(:id, :name, :email, :bio, :greatest_assets, :greatest_challenges, :education_level, :fav_subjects, :fav_activities, :soft_skills, :support_types, :eager_scale, :active_pathway, :life_dream, :community_dream, :world_dream, :facilitator_id, :image, :password, :bio_worksheet, :development_worksheet, :sustainability_worksheet, :college_prep_worksheet, :five_years_worksheet, :blue_image, :orange_image, :green_image)
   end
 
 end

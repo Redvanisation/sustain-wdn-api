@@ -7,6 +7,10 @@ class User < ApplicationRecord
   
   has_one_attached :image
 
+  has_one_attached :blue_image
+  has_one_attached :orange_image
+  has_one_attached :green_image
+
   has_one_attached :bio_worksheet
   has_one_attached :development_worksheet
   has_one_attached :sustainability_worksheet

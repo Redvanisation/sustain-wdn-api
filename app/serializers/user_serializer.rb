@@ -1,8 +1,65 @@
 class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
 
-  attributes :id, :name, :email, :bio, :greatest_assets, :greatest_challenges, :education_level, :fav_subjects, :fav_activities, :soft_skills, :support_types, :eager_scale, :active_pathway, :life_dream, :community_dream, :world_dream, :facilitator_id, :updated_at, :image, :bio_worksheet, :development_worksheet, :sustainability_worksheet, :college_prep_worksheet, :five_years_worksheet
+  attributes :id, :name, :email, :bio, :greatest_assets, :greatest_challenges, :education_level, :fav_subjects, :fav_activities, :soft_skills, :support_types, :eager_scale, :active_pathway, :life_dream, :community_dream, :world_dream, :facilitator_id, :updated_at, :image, :bio_worksheet, :development_worksheet, :sustainability_worksheet, :college_prep_worksheet, :five_years_worksheet, :blue_image, :orange_image, :green_image
 
+
+  # def dream_images
+  #     return unless object.dream_images.attached?
+  #     images = []
+
+  #     object.dream_images.blobs.each do |image|
+  #       images << image.attributes
+  #         .slice('filename', 'byte_size')
+  #         .merge(url: url_for(image))
+  #         .tap { |attrs| attrs['name'] = attrs.delete('filename') }
+  #     end
+
+  #     images
+  # end
+
+  # def dream_images_url
+  #   url_for(object.image)
+  # end
+
+  def blue_image
+    return unless object.blue_image.attached?
+
+    object.blue_image.blob.attributes
+          .slice('filename', 'byte_size')
+          .merge(url: blue_image_url)
+          .tap { |attrs| attrs['name'] = attrs.delete('filename') }
+  end
+
+  def blue_image_url
+    url_for(object.blue_image)
+  end
+
+  def orange_image
+    return unless object.orange_image.attached?
+
+    object.orange_image.blob.attributes
+          .slice('filename', 'byte_size')
+          .merge(url: orange_image_url)
+          .tap { |attrs| attrs['name'] = attrs.delete('filename') }
+  end
+
+  def orange_image_url
+    url_for(object.orange_image)
+  end
+
+  def green_image
+    return unless object.green_image.attached?
+
+    object.green_image.blob.attributes
+          .slice('filename', 'byte_size')
+          .merge(url: green_image_url)
+          .tap { |attrs| attrs['name'] = attrs.delete('filename') }
+  end
+
+  def green_image_url
+    url_for(object.green_image)
+  end
 
   def image
     return unless object.image.attached?

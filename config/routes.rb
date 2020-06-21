@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   post 'auth/login', to: 'authentication#authenticate'
 
   get 'api/v1/youth-count/:user_id', controller: 'api/v1/facilitator_users', action: 'users_count'
+  
+  put 'dream-images/users/:id', controller: 'api/v1/users', action: 'add_dream_images'
 
   post 'auth/users/register', controller: 'api/v1/users', action: 'create'
   post 'auth/facilitators/register', controller: 'api/v1/facilitators', action: 'create'
