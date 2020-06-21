@@ -1,9 +1,9 @@
 class Api::V1::UserPathwaysController < ApplicationController
-  before_action :set_user, except: [:index, :create]
-  before_action :check_user, except: [:index, :create, :show]
+  before_action :set_user, except: [:index]
+  before_action :check_user, except: [:index, :show]
   # before_action :get_facilitator, only: [:index]
 
-  skip_before_action :authorize_request, only: [:create, :show]
+  skip_before_action :authorize_request, only: [:show]
 
 
   def index
@@ -13,15 +13,18 @@ class Api::V1::UserPathwaysController < ApplicationController
     render json: pathways
   end
 
-  # def create
-  #   user = CreateUserService.new(user_params).call
-  #   if user
-  #     render json: 'Success!'
-  #   else
-  #     render json: 'Error registering', status: 400
-  #   end
-  # end
-
+  def create
+    pathway = Pathway.find(params[:id])
+    @user.active_pathway = pathway.title
+    
+    # debugger
+    if @user.save
+      render json: @user
+    else
+      render json: 'Error setting active pathway', status: 400
+    end
+  end
+  
   # def show
   #   if @user
   #     render json: @user
@@ -29,10 +32,13 @@ class Api::V1::UserPathwaysController < ApplicationController
   #     render json: 'Unable to find the user', status: 400
   #   end
   # end
-
+  
   def update
-    debugger
-    if @user.pathways << params[:pathway]
+    pathway = Pathway.find(params[:id])
+    # debugger
+
+    if @user.pathways.exclude?(pathway)  
+      @user.pathways << pathway
       render json: @user.pathways
     else
     #   # debugger
@@ -49,12 +55,14 @@ class Api::V1::UserPathwaysController < ApplicationController
   private
 
   def user_pathways_params
+    # debugger
     params.permit(:id)
   end
 
   # Get the user from the url
   def set_user
-    @user = User.find(params[:id])
+    # debugger
+    @user = User.find(params[:user_id])
   end
 
   # Check if the user got from the url is the same as the current_user otherwise throw an error
