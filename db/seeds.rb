@@ -8,6 +8,7 @@
 
 Facilitator.create(name: 'admin', email: 'admin@email.com', password: 'password', admin: true)
 Facilitator.create(name: 'test', email: 'test@test.com', password: 'password')
+Facilitator.create(name: 'Namgyal', email: 'namgyal.touchstoneleaders@gmail.com', password: '123456')
 
 User.create(name: 'user-1', email: 'user1@gmail.com', password: 'password', facilitator_id: 1)
 User.create(name: 'user-2', email: 'user2@gmail.com', password: 'password', facilitator_id: 1)
