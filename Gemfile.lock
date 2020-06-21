@@ -61,6 +61,22 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    aws-eventstream (1.1.0)
+    aws-partitions (1.298.0)
+    aws-sdk-core (3.94.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.239.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.30.0)
+      aws-sdk-core (~> 3, >= 3.71.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.61.2)
+      aws-sdk-core (~> 3, >= 3.83.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.1.2)
+      aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.13)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
@@ -72,12 +88,13 @@ GEM
     crass (1.0.6)
     diff-lcs (1.3)
     erubi (1.9.0)
-    ffi (1.13.0)
+    ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hirb (0.7.3)
-    i18n (1.8.2)
+    i18n (1.8.3)
       concurrent-ruby (~> 1.0)
+    jmespath (1.4.0)
     jsonapi-renderer (0.2.2)
     jwt (2.2.1)
     listen (3.2.1)
@@ -103,8 +120,7 @@ GEM
     puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.2)
-    rack-cors (1.1.1)
-      rack (>= 2.0.0)
+    rack-cors (0.4.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.3.1)
@@ -156,11 +172,12 @@ GEM
     rspec-support (3.9.3)
     shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
+    simple_command (0.1.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
-    sprockets (4.0.0)
+    sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)
@@ -181,6 +198,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  aws-sdk-s3
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
@@ -189,10 +207,11 @@ DEPENDENCIES
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
-  rack-cors
+  rack-cors (~> 0.4.1)
   rails (~> 6.0.3, >= 6.0.3.1)
   rspec-rails
   shoulda-matchers
+  simple_command
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
