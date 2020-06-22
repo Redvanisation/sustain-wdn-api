@@ -10,6 +10,7 @@ class Api::V1::OpportunitiesController < ApplicationController
   end
 
   def create
+    # debugger
     opportunity = @user.opportunities.build(opportunity_params)
 
     if opportunity.save
@@ -21,7 +22,7 @@ class Api::V1::OpportunitiesController < ApplicationController
 
   def show
     if @opportunity
-      render json: @opportunity
+      render json: { opportunity: @opportunity, opportunity_organization: @opportunity.organization.name }
     else
       render json: 'Error getting the opportunity', status: 400
     end
@@ -40,10 +41,11 @@ class Api::V1::OpportunitiesController < ApplicationController
     render json: 'Opportunity deleted successfully!'
   end
 
+
   private
 
   def opportunity_params
-    params.permit(:name, :description, :type, :related_field, :organization_id)
+    params.permit(:name, :description, :type, :related_field)
   end
 
   def set_opportunity
@@ -52,6 +54,7 @@ class Api::V1::OpportunitiesController < ApplicationController
 
   # Get the user from the url
   def set_organization
+    # debugger
     @user = Organization.find(current_user.id)
   end
 

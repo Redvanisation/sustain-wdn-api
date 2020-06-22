@@ -29,6 +29,7 @@ class Api::V1::OrganizationsController < ApplicationController
   end
 
   def update
+    # debugger
     if @user.update(organization_params)
       render json: @user
     else
@@ -44,7 +45,7 @@ class Api::V1::OrganizationsController < ApplicationController
   private
 
   def organization_params
-    params.permit(:name, :email, :password, :description, :industry, :interships, :other_opportunities, :jobs, :related_subjects, :related_activities, :related_soft_skills)
+    params.permit(:name, :email, :password, :image, :description, :industry, :interships, :other_opportunities, :jobs, :related_subjects, :related_activities, :related_soft_skills)
   end
 
   # Get the user from the url

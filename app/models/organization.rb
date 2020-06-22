@@ -14,8 +14,7 @@ class Organization < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  validates_presence_of :password_digest, :description, :industry, :related_subjects,
-                        :related_activities, :related_soft_skills
+  validates_presence_of :password_digest
 
   def self.handle_login(user)
     user_info = Hash.new

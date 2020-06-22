@@ -5,6 +5,7 @@ class CreateOrganizationService
   end
 
   def call
+    # debugger
     if @params[:image] && !file?(@params[:image])
       delete_image if @organization.image.attached?
       @params.delete(:image)
