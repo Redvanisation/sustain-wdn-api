@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_210047) do
+ActiveRecord::Schema.define(version: 2020_06_16_035501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,5 +36,104 @@ ActiveRecord::Schema.define(version: 2020_06_03_210047) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "facilitators", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.boolean "admin", default: false
+    t.string "role", default: "facilitator"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "opportunities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "type"
+    t.string "related_field"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "organization_id"
+    t.index ["organization_id"], name: "index_opportunities_on_organization_id"
+  end
+
+  create_table "opportunities_users", force: :cascade do |t|
+    t.integer "opportunity_id"
+    t.integer "user_id"
+    t.index ["opportunity_id", "user_id"], name: "index_opportunities_users_on_opportunity_id_and_user_id", unique: true
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.text "description"
+    t.string "industry"
+    t.boolean "interships", default: false
+    t.boolean "jobs", default: false
+    t.boolean "other_opportunities", default: false
+    t.text "related_subjects"
+    t.text "related_activities"
+    t.text "related_soft_skills"
+    t.string "role", default: "organization"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "organizations_users", force: :cascade do |t|
+    t.integer "organization_id"
+    t.integer "user_id"
+    t.index ["organization_id", "user_id"], name: "index_organizations_users_on_organization_id_and_user_id", unique: true
+  end
+
+  create_table "pathways", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "responsibilities"
+    t.text "qualifications"
+    t.string "salary"
+    t.text "links"
+    t.text "education_levels"
+    t.text "subjects"
+    t.text "activities"
+    t.text "soft_skills"
+    t.text "support_types"
+    t.boolean "primary", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pathways_users", force: :cascade do |t|
+    t.integer "pathway_id"
+    t.integer "user_id"
+    t.index ["pathway_id", "user_id"], name: "index_pathways_users_on_pathway_id_and_user_id", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "education_level"
+    t.string "fav_subjects"
+    t.string "fav_activities"
+    t.string "soft_skills"
+    t.string "support_types"
+    t.integer "eager_scale"
+    t.string "active_pathway"
+    t.string "role", default: "user"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "facilitator_id"
+    t.text "life_dream"
+    t.text "community_dream"
+    t.text "world_dream"
+    t.text "bio"
+    t.text "greatest_assets"
+    t.text "greatest_challenges"
+    t.index ["facilitator_id"], name: "index_users_on_facilitator_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "opportunities", "organizations"
+  add_foreign_key "users", "facilitators"
 end
