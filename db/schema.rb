@@ -98,6 +98,8 @@ ActiveRecord::Schema.define(version: 2020_06_16_035501) do
     t.text "activities"
     t.text "soft_skills"
     t.text "support_types"
+    t.text "work_best"
+    t.text "people_see"
     t.boolean "primary", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

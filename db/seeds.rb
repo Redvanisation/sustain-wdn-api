@@ -21,9 +21,11 @@ Pathway.create(
   salary: '$70,000 - $80,000',
   links: 'https://www.freecodecamp.org, https://www.w3schools.com, https://www.codecademy.com, https://www.indeed.com/jobs?q=Computer+Science+Internship&l=Boston%2C+MA&radius=50, https://www.bestmastersdegrees.com/lists/five-great-computer-science-websites-for-students',
   education_levels: 'High School',
-  subjects: 'Science (Computer Science), Mathematics ',
+  subjects: 'Algebra, Geometry, Calculus',
   activities: 'Computer Activities, Clubs',
-  soft_skills: 'Critical Thinker, Technically Skilled, Team Player',
+  soft_skills: 'Critical thinking, Technologically skilled, Teamwork',
+  work_best: '',
+  people_see: '',
   support_types: 'Scholarships, Loans'
 )
 
@@ -34,11 +36,13 @@ Pathway.create(
   qualifications: 'bachelor’s or assiciate degree in nursing or a diploma from an approved nursing program., Once that is completed graduates must take and pass the National Council Licensure Exam for Registered Nurses (NCLEX_RN) to receive their state licensure and begin working as a Registered Nurse.',
   salary: '$52,080 to $111,220',
   links: 'http://www.bristolcc.edu/learnatbristol/programsandcourses/degreesandcertificates/degreeprograms/nursing/rn-to-bsnprograms/, http://www.bristolcc.edu/learnatbristol/programsandcourses/degreesandcertificates/degreeprograms/nursing/diversitynursingscholarsprogram/, https://bristolcc.smartcatalogiq.com/2018-2019/Catalog/Certificates-Alphabetically/Medical-Assisting, https://www.umassd.edu/programs/nursing-bs/, https://www.ncsbn.org/nclex-application-and-registration.htm, https://www.southcoast.org/philanthropy/volunteer/, https://www.volunteersouthcoast.org , https://www.volunteermatch.org/search/index.jsp?l=New+Bedford%2C+MA%2C+USA, https://ymcasouthcoast.org/childcare/preschool/new-bedford-ymca-early-learning-center/, https://www.littlepeoplescollege.com , https://www.southcoast.org/locations/, https://www.caring.com/senior-living/nursing-homes/massachusetts/new-bedford',
-  education_levels: 'College, Graduate School',
-  subjects: 'Science, Biology',
-  activities: 'Volunteer work, community service',
-  soft_skills: 'Communication, adaptable, creative thinking, team player',
-  support_types: 'Scholarships, Loans, Paid Internships, Work Study Opportunities, Transportation, Other Financial Support'
+  education_levels: 'Bachelor’s Degree, Master’s Degree, Doctorate Degrees',
+  subjects: 'Biology, Chemistry',
+  activities: '',
+  soft_skills: 'Adaptability, Critical thinking, Teamwork, Interpersonal skills, Time management, Problem Solving and​ Resourcefulness',
+  work_best: 'Working under the supervision of someone else, Working in groups with discussion, Working on solving problems',
+  people_see: 'Level-headed, Flexible, Careful, Logical ',
+  support_types: '',
 )
 
 Pathway.create(
@@ -51,10 +55,12 @@ Pathway.create(
 
   salary: '$73,580 to $122,180',
   links: 'https://bristolcc.smartcatalogiq.com/en/2016-2017/Catalog/Programs-of-Study/Veterinary-Health-Care, https://www.umassd.edu/programs/chemistry/, https://www.umassd.edu/programs/biochemistry, https://www.umassd.edu/programs/physics/, https://www.umassd.edu/programs/biology/, https://vet.tufts.edu, https://all-veterinary-schools.com/veterinary-schools/, https://www.icva.net/navle/, https://www.southcoast.org/philanthropy/volunteer/, https://www.volunteersouthcoast.org, https://www.volunteermatch.org/search/index.jsp?l=New+Bedford%2C+MA%2C+USA, https://www.lighthouseanimalshelter.org/volunteer, https://www.foreverpaws.com/volunteer, https://www.caresouthcoast.com, http://www.newbedfordveterinaryhospital.com, https://www.newenglandanimalhosp.com, https://www.yelp.com/search?cflt=vet&find_loc=New+Bedford%2C+ma',
-  education_levels: 'Graduate School',
-  subjects: 'Science, Biology',
-  activities: 'Volunteer work, community service',
-  soft_skills: 'adaptable, creative thinking, team player',
+  education_levels: 'Doctorate Degrees',
+  subjects: 'Environmental Science',
+  activities: '',
+  soft_skills: 'Adaptability, Critical thinking, Teamwork, Interpersonal skills, Time management, Problem Solving and​ Resourcefulness, Leadership',
+  work_best: 'Leading a team, Working in groups with discussion, Working on solving problems',
+  people_see: 'Level-headed, Flexible, Careful, Logical',
   support_types: ''
 )
 
@@ -69,6 +75,8 @@ Pathway.create(
   subjects: 'Science (Psychology), English (Literature/Analysis), English (Writing)',
   activities: 'Volunteer Work and Community Service, Clubs',
   soft_skills: 'Interpersonally Skilled (Good With Communications), ',
+  work_best: '',
+  people_see: '',
   support_types: ''
 )
 
@@ -80,10 +88,12 @@ Pathway.create(
   qualifications: 'Proven success managing significant complex design-build energy projects., Demonstrated leadership skills and management know-how., Excellent interpersonal skills that establish and promote effective relationships with owners - engineers and subcontractors., Ability to balance and prioritize multiple complex tasks., Usually requires 10+ Years of experience in project Management.',
   salary: '$56,140 - $164,790',
   links: '',
-  education_levels: 'High School, College, Graduate School',
-  subjects: 'Mathematics (Statistics), English (Writing), Science (Psychology), Languages',
-  activities: 'Volunteer Work and Community Service, Clubs, Activism, Leadership',
-  soft_skills: 'Interpersonally Skilled (Good With Communications), Team Player, Critical Thinker',
+  education_levels: 'Bachelor’s Degree, Master’s Degree',
+  subjects: 'Physics, Environmental Science, Algebra, Geometry, Calculus',
+  activities: 'Leadership',
+  soft_skills: 'Attention to Detail, Organization, Resourcefulness, Time Management, Technologically skilled',
+  work_best: 'Building things and/or repairing them, Directing activities and people, Responsible for organizing an activity and planning, Working with people, Leading a team to accomplish a goal ',
+  people_see: 'Logical, Level-headed',
   support_types: ''
 )
 
@@ -98,11 +108,50 @@ Pathway.create(
   Successful project coordinators are self-motivated - attentive - and always follow through., High level of customer service., Ability to work effectively with other functional groups., Proficient in Excel., Analytical & critical thinking skills., Ability to understand and navigate different database systems., Ability to multi-task and be self-motivated., Strong organizational skills., Strong written and oral communication skills.',
   salary: '$58,390 - $83,591',
   links: '',
-  education_levels: 'College, Graduate school',
-  subjects: 'Languages, Science, Mathematics',
-  activities: 'Volunteer Work and Community Service, Activism, Leadership',
-  soft_skills: 'Critical Thinker, Team player, Adaptable, Interpersonally Skilled (Good With Communications)',
-  support_types: 'Internships'
+  education_levels: 'Bachelor’s Degree',
+  subjects: 'Environmental Science',
+  activities: 'Leadership, Event Planning Committees',
+  soft_skills: 'Interpersonal skills, Resourceful, Teamwork, Adaptable, Time management',
+  work_best: 'Building things and/or repairing them, Directing activities and people, Responsible for organizing an activity and planning, Working with people',
+  people_see: 'Logical, Level-headed',
+  support_types: ''
+)
+
+Pathway.create(
+  title: 'Forensic Science Technician',
+  description: 'Forensic Science Technicians work with law enforcement to analyze evidence and investigate crime scenes. They also use their skills to work with crime scene investigators. The role of the technician is to explore links between suspects and criminal activities to assist in the solving of crimes.',
+  responsibilities: 'Collaborate with crime scene investigators., Handle and analyze crime scene evidence., Preparing written reports based on evidence analysis., Serving as an expert witness in a court of law., Ensuring all laboratory protocols are followed., Developing, maintaining and updating work quality standards, standard operating procedures, and similar methods and procedures.',
+  qualifications: 'Problem Solving Skills, Bachelor’s Degree in natural science – Chemistry, biology or Forensic Science, Recommended – Accreditation from the American academy of Forensic Sciences Forensic Science Education Programs Accreditation Commission, Critical thinking, Problem-Solving, On-the-Job Training – understanding the legal process, working within
+  different laboratory settings etc..., Undergo a background investigation, Pass a polygraph examination, Pass a urinalysis drug test, Possess a valid driver’s license, Show proof of formal training, Provide proof of education, certification, and experience
+  through original transcripts, diplomas, and certificate',
+  salary: '~ $58,230',
+  links: 'https://mercyhurst.edu/academics/applied-forensic-sciences, https://www.ucf.edu/degree/forensic-science-bs/, https://entomology.tamu.edu/forensic-investigative-sciences/, https://www.fitchburgstate.edu/academics/undergraduate/undergraduate-day-programs/criminal-justice/',
+  education_levels: 'Bachelor’s Degree, Masters Degree',
+  subjects: 'Algebra, Biology, Calculus, English',
+  activities: '',
+  soft_skills: 'Critical thinking, Problem Solving and​ Resourcefulness, Attention to Detail, organization, Analytical Skills',
+  work_best: 'Presenting my projects, Exploring a subject from different
+  points of view, Working with things, Working on solving problems, Given very
+  clear guidelines',
+  people_see: 'Level-headed, Logical, Flexible',
+  support_types: ''
+)
+
+Pathway.create(
+  title: 'Electrical Engineer',
+  description: 'Electrical engineering is an engineering discipline concerned with the study, design and application of equipment, devices and systems which use electricity, electronics, and electromagnetism.',
+  responsibilities: 'Electrical engineers design - develop and test electrical devices and equipment including communications systems - power generators - motors and navigation systems and electrical systems for automobiles and aircraft. They also oversee the manufacture of these devices - systems and equipment., Design new uses of electrical power for product development and enhancement.
+  Prepare electrical system specifications or drawings., Plan layout of electrical generation and delivery systems including plants - distribution lines and electrical stations and substations., Oversee production - testing and installation of electrical equipment to confirm compliance of products with applicable codes and regulations., Formulate electrical systems in buildings for efficient use of electricity such as employing natural lighting., Calculate and estimate material - equipment and labor costs for products and projects involving electrical systems and use of electrical power., Oversee manufacturing and other projects involving or using electrical power., Receive and respond to customer or client concerns or complaints involving electrical power., Identify problems in electrical systems and propose and help implement solutions to those problems., Supervise members of electrical system or equipment teams.',
+  qualifications: "Most electrical engineers must have a bachelor's degree or even a master's degree in electrical engineering from a university accredited by the Accreditation Board for Engineering and Technology (ABET) Additional certifications that demonstrate a commitment to further education preferred.",
+  salary: '$71,000 - $96,000',
+  links: 'http://electronics.wisc-online.com, https://www.youtube.com/user/DarrylMorrell/featured, https://www.edx.org/course/circuits-and-electronics-1-basic-circuit-analysis#.VDV_rb64nog, https://www.electricalengineeringschools.org/electricity-101/',
+  education_levels: 'High School',
+  subjects: 'Algebra, Geometry, Calculus',
+  activities: 'Sports and Athletics',
+  soft_skills: 'Critical thinking, Technologically skilled, Teamwork',
+  work_best: '',
+  people_see: '',
+  support_types: 'Scholarships, Loans'
 )
 
 # Pathway.create(
@@ -116,5 +165,7 @@ Pathway.create(
 #   subjects: '',
 #   activities: '',
 #   soft_skills: '',
+  # work_best: '',
+  # people_see: '',
 #   support_types: ''
 # )

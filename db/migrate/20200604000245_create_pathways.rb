@@ -12,6 +12,8 @@ class CreatePathways < ActiveRecord::Migration[6.0]
       t.text :activities
       t.text :soft_skills
       t.text :support_types
+      t.text :work_best
+      t.text :people_see
       t.boolean :primary, default: true
 
       t.timestamps
