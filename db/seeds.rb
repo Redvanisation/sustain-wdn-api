@@ -20,13 +20,13 @@ Pathway.create(
   qualifications: 'Bachelor’s degree in computer science or related field, Additional certifications that demonstrate a commitment to further education preferred, Minimum 2 years experience as a computer scientist or other relevant role, Exceptional coding skills including SQL HTML and Javascript, Significant experience with databases, Familiarity with Agile, Experience gathering and decomposing requirements, Proven record of solution development and deployment, Familiarity with web-based application development, Experience with testing use case and user stories, Outstanding communication skills written and verbal, Highly organized and able to manage multiple projects simultaneously, Team-player mentality with a positive attitude, Keen attention to detail and solid analytical skills, Able to articulate complex abstract concepts concisely and effectively',
   salary: '$70,000 - $80,000',
   links: 'https://www.freecodecamp.org, https://www.w3schools.com, https://www.codecademy.com, https://www.indeed.com/jobs?q=Computer+Science+Internship&l=Boston%2C+MA&radius=50, https://www.bestmastersdegrees.com/lists/five-great-computer-science-websites-for-students',
-  education_levels: 'High School',
-  subjects: 'Algebra, Geometry, Calculus',
-  activities: 'Computer Activities, Clubs',
-  soft_skills: 'Critical thinking, Technologically skilled, Teamwork',
-  work_best: '',
-  people_see: '',
-  support_types: 'Scholarships, Loans'
+  education_levels: 'Bachelor’s Degree',
+  subjects: 'Algebra, Physics, Calculus',
+  activities: 'Computer Activities',
+  soft_skills: 'Critical thinking, Problem Solving and Resourcefulness, Technologically skilled, Teamwork',
+  work_best: 'Working on solving problems, Leading a team to accomplish a goal',
+  people_see: 'Logical, Flexible',
+  support_types: ''
 )
 
 Pathway.create(
